@@ -5,10 +5,20 @@
 ; #27 - Palindrome Detector
 #(= (reverse %) (seq %)))
 
-;#26 - Fibonacci Sequence
+; #26 - Fibonacci Sequence
 (fn fib 
   ([n] (fib n 0 1 []))
 	([n a b res]
 	 (if-not (> n 0)
 	   res
 		 (recur (dec n) b (+ a b) (conj res b)))))
+
+; #29 - Get the Caps
+(fn get-the-caps 
+ ([a] (get-the-caps a []))
+ ([a res] 
+   (if (empty? a)
+	   (clojure.string/join res)
+		 (if (java.lang.Character/isUpperCase (first a))
+		  (recur (rest a) (conj res (first a)))
+			(recur (rest a) res)))))
