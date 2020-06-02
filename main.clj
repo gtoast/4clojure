@@ -1,3 +1,4 @@
+; #156 - Map Defaults
 (defn my-func [v coll]
   (into {} (map #(vector % v)) coll))
 
