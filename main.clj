@@ -27,4 +27,5 @@
 (fn interpo [sep coll]
   (drop-last (mapcat vector coll (repeat sep))))
 
-    
+; #16 Hello World
+(fn [s] (str "Hello, " s "!"))
