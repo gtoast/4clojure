@@ -22,3 +22,9 @@
 		 (if (java.lang.Character/isUpperCase (first a))
 		  (recur (rest a) (conj res (first a)))
 			(recur (rest a) res)))))
+
+; #40 - Interpose a Sequence
+(fn interpo [sep coll]
+  (drop-last (mapcat vector coll (repeat sep))))
+
+    
