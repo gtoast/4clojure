@@ -35,3 +35,14 @@
 
 ; #30 Compress a Sequence
 (partial reduce #(if (= (last %1) %2) %1 (conj %1 %2)) [])
+
+; #28 Flatten a Sequence
+(fn flatten-seq 
+  ([s] (flatten-seq s []))
+  ([s res]
+    (if-let [f (first s)]
+	   (if (coll? f)
+	     (flatten-seq (next s) (concat res (flatten-seq f [])))
+		   (flatten-seq (next s) (concat res [f])))
+		 res)))
+		
