@@ -29,3 +29,9 @@
 
 ; #16 Hello World
 (fn [s] (str "Hello, " s "!"))
+
+; #32 Duplicate a Sequence
+(fn duplicate-a-sequence [s] (mapcat #(vector % %) s))
+
+; #30 Compress a Sequence
+(partial reduce #(if (= (last %1) %2) %1 (conj %1 %2)) [])
