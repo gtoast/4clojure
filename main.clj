@@ -45,4 +45,6 @@
 	     (flatten-seq (next s) (concat res (flatten-seq f [])))
 		   (flatten-seq (next s) (concat res [f])))
 		 res)))
-		
+
+; #71 Rearranging Code: ->
+last	
