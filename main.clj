@@ -54,3 +54,9 @@ last
   (lazy-seq
    (when (< a b)
      (cons a (my-range (inc a) b)))))
+
+; #39 Interleave Two Seqs
+(fn inter-two-seq [a b]
+  (lazy-seq
+   (when (and (first a) (first b))
+     (concat [(first a) (first b)] (inter-two-seq (rest a) (rest b))))))
