@@ -3,7 +3,7 @@
   (into {} (map #(vector % v)) coll))
 
 ; #27 - Palindrome Detector
-#(= (reverse %) (seq %)))
+#(= (reverse %) (seq %))
 
 ; #26 - Fibonacci Sequence
 (fn fib 
