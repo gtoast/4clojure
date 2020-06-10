@@ -8,20 +8,20 @@
 ; #26 - Fibonacci Sequence
 (fn fib 
   ([n] (fib n 0 1 []))
-	([n a b res]
-	 (if-not (> n 0)
-	   res
-		 (recur (dec n) b (+ a b) (conj res b)))))
+  ([n a b res]
+   (if-not (> n 0)
+     res
+     (recur (dec n) b (+ a b) (conj res b)))))
 
 ; #29 - Get the Caps
 (fn get-the-caps 
  ([a] (get-the-caps a []))
  ([a res] 
-   (if (empty? a)
-	   (clojure.string/join res)
-		 (if (java.lang.Character/isUpperCase (first a))
-		  (recur (rest a) (conj res (first a)))
-			(recur (rest a) res)))))
+  (if (empty? a)
+    (clojure.string/join res)
+    (if (java.lang.Character/isUpperCase (first a))
+     (recur (rest a) (conj res (first a)))
+     (recur (rest a) res)))))
 
 ; #40 - Interpose a Sequence
 (fn interpo [sep coll]
@@ -40,11 +40,17 @@
 (fn flatten-seq 
   ([s] (flatten-seq s []))
   ([s res]
-    (if-let [f (first s)]
-	   (if (coll? f)
-	     (flatten-seq (next s) (concat res (flatten-seq f [])))
-		   (flatten-seq (next s) (concat res [f])))
-		 res)))
+   (if-let [f (first s)]
+    (if (coll? f)
+      (flatten-seq (next s) (concat res (flatten-seq f [])))
+      (flatten-seq (next s) (concat res [f])))
+    res)))
 
 ; #71 Rearranging Code: ->
-last	
+last 
+
+; #34 Implement Range
+(fn my-range [a b]
+  (lazy-seq
+   (when (< a b)
+     (cons a (my-range (inc a) b)))))
