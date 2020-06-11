@@ -60,3 +60,11 @@ last
   (lazy-seq
    (when (and (first a) (first b))
      (concat [(first a) (first b)] (inter-two-seq (rest a) (rest b))))))
+
+; #42 Factorial Fun
+(fn fact 
+ ([n] (fact n 1))
+ ([n acc] 
+  (if (= n 1)
+   acc
+   (recur (dec n) (* acc n)))))
