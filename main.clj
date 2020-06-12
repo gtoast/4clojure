@@ -73,16 +73,16 @@ last
 (fn flipping-out
   [f]
   (fn [& rst]
-   (apply f (reverse rst))))
+    (apply f (reverse rst))))
 
 ; #44 Rotate Sequence
-(fn rotate-seq 
- [n s]
- (cond
-  (pos? n) (recur (dec n) (concat (rest s) [(first s)]))
-  (neg? n) (recur (inc n) (conj (butlast s) (last s)))
-  :else s))
-  
+(fn rotate-seq
+  [n s]
+  (cond
+    (pos? n) (recur (dec n) (concat (rest s) [(first s)]))
+    (neg? n) (recur (inc n) (conj (butlast s) (last s)))
+    :else s))
+
 ;43 Reverse Interleave
 (fn reverse-inter [xs n]
   (let [acc (take n (repeat []))]
