@@ -87,3 +87,12 @@ last
 (fn reverse-inter [xs n]
   (let [acc (take n (repeat []))]
     (reduce #(map conj %1 %2) acc (partition n xs))))
+
+;47 Contain Yourself
+4
+
+;49 Split a Sequence
+#(vector (vec (take %1 %2)) (subvec %2 %1))
+
+;50 Split by type
+#(vals (group-by type %))
