@@ -105,3 +105,35 @@ last
 
 ;33 Replicate a Sequence
 #(mapcat (partial repeat %2) %1)
+
+;#45 Intro to Iterate
+'(1 4 7 10 13)
+
+;51 Advanced Destructuring
+[1 2 3 4 5]
+
+;53 Longest Increasing Sub-Seq
+;(defn steps [coll]
+;  (for [n (range (dec(count coll)))] (subvec coll n (+ 2 n))))
+;(defn split-by-inc [coll]
+;   (partition-by (fn [[a b]] (< a b)) coll))
+;(defn filter-dec [coll]
+;  (filter (fn [[[a b] & _]] (< a b)) coll))
+;(defn get-longest [coll]
+;  (first (sort-by count > coll)))
+;(defn re-construct [coll]
+;  (concat (map first (butlast coll)) (last coll)))
+
+(fn longest-inc-subseq [coll]
+  (letfn [(steps [coll]
+           (for [n (range (dec(count coll)))] (subvec coll n (+ 2 n))))
+          (split-by-runs [coll]
+           (partition-by (fn [[a b]] (< a b)) coll))
+          (filter-dec [coll]
+            (filter (fn [[[a b] & _]] (< a b)) coll))
+          (get-longest [coll]
+            (first (sort-by count > coll)))
+          (re-construct [coll]
+            (concat (map first (butlast coll)) (last coll)))]
+   (-> coll steps split-by-runs filter-dec get-longest re-construct)))
+
