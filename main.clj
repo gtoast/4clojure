@@ -96,3 +96,12 @@ last
 
 ;50 Split by type
 #(vals (group-by type %))
+
+;41 Drop Every Nth Item
+#(keep-indexed (fn [idx itm] (when ((complement zero?) (mod (inc idx) %2)) itm)) %1)
+
+;31 Pack a Sequence
+(partition-by identity)
+
+;33 Replicate a Sequence
+#(mapcat (partial repeat %2) %1)
