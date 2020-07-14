@@ -113,16 +113,17 @@ last
 [1 2 3 4 5]
 
 ;53 Longest Increasing Sub-Seq
-;(defn steps [coll]
-;  (for [n (range (dec(count coll)))] (subvec coll n (+ 2 n))))
-;(defn split-by-inc [coll]
-;   (partition-by (fn [[a b]] (< a b)) coll))
-;(defn filter-dec [coll]
-;  (filter (fn [[[a b] & _]] (< a b)) coll))
-;(defn get-longest [coll]
-;  (first (sort-by count > coll)))
-;(defn re-construct [coll]
-;  (concat (map first (butlast coll)) (last coll)))
+(comment 
+  (defn steps [coll]
+     (for [n (range (dec(count coll)))] (subvec coll n (+ 2 n))))
+  (defn split-by-inc [coll]
+     (partition-by (fn [[a b]] (< a b)) coll))
+  (defn filter-dec [coll]
+    (filter (fn [[[a b] & _]] (< a b)) coll))
+  (defn get-longest [coll]
+    (first (sort-by count > coll)))
+  (defn re-construct [coll]
+    (concat (map first (butlast coll)) (last coll))))
 
 (fn longest-inc-subseq [coll]
   (letfn [(steps [coll]
